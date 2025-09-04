@@ -26,7 +26,7 @@ public final class SoftwareAttribute extends Attribute {
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	public SoftwareAttribute(final String value) {
-		super(Constants.ATTRIBUTE_NAME_NAME, Constants.ATTRIBUTE_TYPE_STRING);
+		super(Constants.ATTRIBUTE_NAME_SOFTWARE, Constants.ATTRIBUTE_TYPE_STRING);
 		
 		this.value = Objects.requireNonNull(value, "value == null");
 	}

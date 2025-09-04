@@ -44,6 +44,7 @@ import org.macroing.sfv4j.file.openexr.ScreenWindowCenterAttribute;
 import org.macroing.sfv4j.file.openexr.ScreenWindowWidthAttribute;
 import org.macroing.sfv4j.file.openexr.SoftwareAttribute;
 import org.macroing.sfv4j.file.openexr.TypeAttribute;
+import org.macroing.sfv4j.file.openexr.UnknownAttribute;
 import org.macroing.sfv4j.file.openexr.VersionAttribute;
 import org.macroing.sfv4j.javafx.scene.control.ObjectTreeView;
 
@@ -115,8 +116,8 @@ public final class OpenEXRFileTreeView extends HBox {
 				} else if(object instanceof CompressionAttribute) {
 					final CompressionAttribute compressionAttribute = CompressionAttribute.class.cast(object);
 					
-					list.add(new Data("type", Integer.toString(compressionAttribute.getCompressionType())));
-					list.add(new Data("name", compressionAttribute.getCompressionName()));
+					list.add(new Data("compressionType", Integer.toString(compressionAttribute.getCompressionType())));
+					list.add(new Data("compressionName", compressionAttribute.getCompressionName()));
 				} else if(object instanceof DataWindowAttribute) {
 					final DataWindowAttribute dataWindowAttribute = DataWindowAttribute.class.cast(object);
 					
@@ -179,11 +180,23 @@ public final class OpenEXRFileTreeView extends HBox {
 					final TypeAttribute typeAttribute = TypeAttribute.class.cast(object);
 					
 					list.add(new Data("value", typeAttribute.getValue()));
+				} else if(object instanceof UnknownAttribute) {
+					final UnknownAttribute unknownAttribute = UnknownAttribute.class.cast(object);
+					
+					list.add(new Data("size", Integer.toString(unknownAttribute.getBytes().length)));
 				} else if(object instanceof VersionAttribute) {
 					final VersionAttribute versionAttribute = VersionAttribute.class.cast(object);
 					
 					list.add(new Data("version", Integer.toString(versionAttribute.getVersion())));
 				}
+			} else if(object instanceof Channel) {
+				final Channel channel = Channel.class.cast(object);
+				
+				list.add(new Data("pixelType", Integer.toString(channel.getPixelType())));
+				list.add(new Data("pixelTypeName", channel.getPixelTypeName()));
+				list.add(new Data("pLinear", Integer.toString(channel.getPLinear())));
+				list.add(new Data("xSampling", Integer.toString(channel.getXSampling())));
+				list.add(new Data("ySampling", Integer.toString(channel.getYSampling())));
 			} else if(object instanceof Header) {
 				final Header header = Header.class.cast(object);
 				
@@ -194,6 +207,18 @@ public final class OpenEXRFileTreeView extends HBox {
 				}
 			} else if(object instanceof OpenEXRFile) {
 				final OpenEXRFile openEXRFile = OpenEXRFile.class.cast(object);
+				
+				list.add(new Data("magicNumber", Integer.toString(openEXRFile.getMagicNumber())));
+				list.add(new Data("version", Integer.toString(openEXRFile.getVersion())));
+				list.add(new Data("versionNumber", Integer.toString(openEXRFile.getVersionNumber())));
+				list.add(new Data("containsLongNames", Boolean.toString(openEXRFile.containsLongNames())));
+				list.add(new Data("containsNonImageParts", Boolean.toString(openEXRFile.containsNonImageParts())));
+				list.add(new Data("isMultiPartFileWithDeepData", Boolean.toString(openEXRFile.isMultiPartFileWithDeepData())));
+				list.add(new Data("isMultiPartFileWithScanLines", Boolean.toString(openEXRFile.isMultiPartFileWithScanLines())));
+				list.add(new Data("isMultiPartFileWithTiles", Boolean.toString(openEXRFile.isMultiPartFileWithTiles())));
+				list.add(new Data("isSinglePartFileWithDeepData", Boolean.toString(openEXRFile.isSinglePartFileWithDeepData())));
+				list.add(new Data("isSinglePartFileWithScanLines", Boolean.toString(openEXRFile.isSinglePartFileWithScanLines())));
+				list.add(new Data("isSinglePartFileWithTiles", Boolean.toString(openEXRFile.isSinglePartFileWithTiles())));
 				
 				final List<Header> headers = openEXRFile.getHeaders();
 				

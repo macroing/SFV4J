@@ -26,7 +26,7 @@ public final class ExifImageHistoryAttribute extends Attribute {
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	public ExifImageHistoryAttribute(final String value) {
-		super(Constants.ATTRIBUTE_NAME_GENERATED_BY, Constants.ATTRIBUTE_TYPE_STRING);
+		super(Constants.ATTRIBUTE_NAME_EXIF_IMAGE_HISTORY, Constants.ATTRIBUTE_TYPE_STRING);
 		
 		this.value = Objects.requireNonNull(value, "value == null");
 	}

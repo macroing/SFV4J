@@ -43,6 +43,19 @@ public final class Channel {
 		return this.name;
 	}
 	
+	public String getPixelTypeName() {
+		switch(this.pixelType) {
+			case Constants.PIXEL_TYPE_FLOAT:
+				return Constants.PIXEL_TYPE_NAME_FLOAT;
+			case Constants.PIXEL_TYPE_HALF:
+				return Constants.PIXEL_TYPE_NAME_HALF;
+			case Constants.PIXEL_TYPE_U_INT:
+				return Constants.PIXEL_TYPE_NAME_U_INT;
+			default:
+				return Constants.PIXEL_TYPE_NAME_UNKNOWN;
+		}
+	}
+	
 	@Override
 	public String toString() {
 		return String.format("Channel(name = \"%s\", pLinear = %s, pixelType = %s, xSampling = %s, ySampling = %s)", this.name, Integer.toString(this.pLinear), Integer.toString(this.pixelType), Integer.toString(this.xSampling), Integer.toString(this.ySampling));

@@ -46,6 +46,10 @@ public final class Constants {
 	public static final String ATTRIBUTE_TYPE_LINE_ORDER = "lineOrder";
 	public static final String ATTRIBUTE_TYPE_STRING = "string";
 	public static final String ATTRIBUTE_TYPE_V2F = "v2f";
+	public static final String PIXEL_TYPE_NAME_FLOAT = "FLOAT";
+	public static final String PIXEL_TYPE_NAME_HALF = "HALF";
+	public static final String PIXEL_TYPE_NAME_U_INT = "UINT";
+	public static final String PIXEL_TYPE_NAME_UNKNOWN = "UNKNOWN";
 	public static final int COMPRESSION_TYPE_NONE = 0;
 	public static final int COMPRESSION_TYPE_PIZ = 4;
 	public static final int COMPRESSION_TYPE_R_L_E = 1;

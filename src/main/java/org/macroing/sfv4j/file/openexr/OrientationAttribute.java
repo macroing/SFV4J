@@ -24,7 +24,7 @@ public final class OrientationAttribute extends Attribute {
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	public OrientationAttribute(final int orientation) {
-		super(Constants.ATTRIBUTE_NAME_VERSION, Constants.ATTRIBUTE_TYPE_INT);
+		super(Constants.ATTRIBUTE_NAME_ORIENTATION, Constants.ATTRIBUTE_TYPE_INT);
 		
 		this.orientation = orientation;
 	}
